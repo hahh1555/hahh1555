@@ -40,21 +40,23 @@ def calc_similarity(text1, text2):
 #主函数
 def main(path1,path2):
     #开始
-    Start_time=time()
+    startT=time()
     #保存输出结果文件的绝对路径
-    save_path="D:\python\_text\result.txt"
+    #save_path='D:/python/_text/result.txt'
     str1=get_message(path1)
     str2=get_message(path2)
     t1=j_file(str1)
     t2=j_file(str2)
     similarity=calc_similarity(t1,t2)
-    # 借助similarity.item()转化为<class 'float'>，然后再取小数点后两位
-    result=round(similarity.item(),2)
     # 结束
+    endT = time()
     print('文章重复率为：%.2f' %similarity)
+    print("time=%.2g 秒" % (endT - startT))
         # 将结果写入指定文件
-    f = open(save_path, 'w', encoding="utf-8")
+    f = open('save.txt', 'w', encoding="utf-8")
     f.write('文章重复率为：%.2f' %similarity)
+    f.write('\n')
+    f.write("time=%.2g 秒" % (endT - startT))
     f.close()
 
 
