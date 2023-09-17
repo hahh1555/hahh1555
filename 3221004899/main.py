@@ -4,10 +4,11 @@ import jieba
 import gensim
 import re
 from time import * #引入时间库
+from memory_profiler import profile
 
 
 
-
+#@profile
 #获取指定路径的文件内容
 def get_message(path):
     str=''
